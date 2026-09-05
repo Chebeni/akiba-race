@@ -1412,10 +1412,26 @@ function or(l, r)
 }
 
 self.C3_ExpressionFuncs = [
-		() => 0.3,
+		() => 0.1,
 		() => 0,
+		() => 0.3,
 		() => 1,
 		() => 2,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
+		},
+		() => "StartScreen",
+		() => "music",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (1 - v0.GetValue());
+		},
+		() => 0.05,
 		() => "Car Control",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -1448,17 +1464,8 @@ self.C3_ExpressionFuncs = [
 		() => 100,
 		() => 50,
 		() => "Fuel Control",
-		() => 0.1,
 		() => 0.5,
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => v0.GetValue();
-		},
 		() => "LevelControl",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
-		},
 		() => "Layout 1",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -1468,10 +1475,6 @@ self.C3_ExpressionFuncs = [
 		() => "Level 2",
 		() => "Level 3",
 		() => "Level 4",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => (1 - v0.GetValue());
-		},
 		() => "WINNER",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -1522,10 +1525,7 @@ self.C3_ExpressionFuncs = [
 			const f1 = p._GetNode(1).GetBoundMethod();
 			const f2 = p._GetNode(2).GetBoundMethod();
 			return () => f0((f1(1) + 40), (f2(1) + 200));
-		},
-		() => "StartScreen",
-		() => "music",
-		() => 0.05
+		}
 ];
 
 
