@@ -1462,7 +1462,7 @@ self.C3_ExpressionFuncs = [
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => ((-27) * f0());
+			return () => ((-29) * f0());
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -1470,6 +1470,7 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 100,
 		() => 50,
+		() => 3,
 		() => "Fuel Control",
 		() => 0.5,
 		() => "LevelControl",
@@ -1513,7 +1514,6 @@ self.C3_ExpressionFuncs = [
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => (n0.ExpObject() - (f1() * 20));
 		},
-		() => 3,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() - 200);

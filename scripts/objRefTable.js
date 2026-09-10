@@ -140,6 +140,7 @@ self.C3_JsPropNameTable = [
 	{FrontChecker3: 0},
 	{SpriteShop: 0},
 	{Browser: 0},
+	{WinRestart2: 0},
 	{Pin: 0},
 	{Checkers: 0},
 	{Ground: 0},
@@ -160,7 +161,9 @@ self.C3_JsPropNameTable = [
 	{NextL3Music: 0},
 	{NextL4Music: 0},
 	{MenuReady: 0},
-	{MusicMuted: 0}
+	{MusicMuted: 0},
+	{BoostUsed: 0},
+	{BoostActive: 0}
 ];
 
 self.InstanceType = {
@@ -232,6 +235,7 @@ self.InstanceType = {
 	FrontChecker3: class extends self.ISpriteInstance {},
 	SpriteShop: class extends self.ISpriteInstance {},
 	Browser: class extends self.IInstance {},
+	WinRestart2: class extends self.ISpriteInstance {},
 	Checkers: class extends self.ISpriteInstance {},
 	Ground: class extends self.ISpriteInstance {},
 	Cars: class extends self.ISpriteInstance {}
