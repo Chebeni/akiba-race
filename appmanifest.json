@@ -1,7 +1,7 @@
 {
-	"name": "Akiba Race",
-	"short_name": "Akiba Race",
-	"description": "",
+	"name": "My Manyanga",
+	"short_name": "My Manyanga",
+	"description": "Created by Akiba Studios and Chebeni",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "landscape",
