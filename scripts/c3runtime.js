@@ -1603,14 +1603,15 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "StartScreen",
 		() => "music",
-		() => 0.5,
-		() => 9999,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
 		},
 		() => 0,
 		() => 1,
+		() => 0.75,
+		() => 0.5,
+		() => 9999,
 		() => 0.05,
 		() => 0.3,
 		() => 2,
@@ -1700,7 +1701,7 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "FLIPPED!",
 		() => 8,
-		() => -5,
+		() => -2,
 		() => "sfx_loss",
 		() => 1.5,
 		() => 50,
@@ -1802,6 +1803,7 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => ("best_" + f0());
 		},
+		() => -5,
 		() => "sfx_start",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
