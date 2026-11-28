@@ -1613,7 +1613,17 @@ self.C3_ExpressionFuncs = [
 		() => 0.5,
 		() => 9999,
 		() => 0.05,
+		() => "HighScoresLayer",
 		() => 0.3,
+		() => "Loading scores...",
+		() => "menu_scores",
+		() => "https://high-score-test.vercel.app/api/race-get-scores",
+		() => "--",
+		() => "best_run_l1",
+		() => "best_run_l2",
+		() => "best_run_l3",
+		() => "best_run_l4",
+		() => "best_run_total",
 		() => 2,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -1674,6 +1684,12 @@ self.C3_ExpressionFuncs = [
 			return () => (n0.ExpObject() * 0.4);
 		},
 		() => 15450945,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const f2 = p._GetNode(2).GetBoundMethod();
+			return () => and(f0(f1(f2()), 2), "s");
+		},
 		() => "Car Control",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -1750,6 +1766,14 @@ self.C3_ExpressionFuncs = [
 		() => 3,
 		() => 0.35,
 		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			const n3 = p._GetNode(3);
+			return () => Math.sqrt(((n0.ExpBehavior() * n1.ExpBehavior()) + (n2.ExpBehavior() * n3.ExpBehavior())));
+		},
+		() => 10,
+		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (and("TIME: ", Math.floor(v0.GetValue())) + "s");
 		},
@@ -1772,31 +1796,11 @@ self.C3_ExpressionFuncs = [
 			const n5 = p._GetNode(5);
 			return () => (C3.clamp(((n0.ExpObject() - n1.ExpObject()) / f2(1, (n3.ExpObject() - n4.ExpObject()))), 0, 1) * n5.ExpObject());
 		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (and("LEVEL 1: ", f0(v1.GetValue(), 2)) + "s");
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (and("LEVEL 2: ", f0(v1.GetValue(), 2)) + "s");
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (and("LEVEL 3: ", f0(v1.GetValue(), 2)) + "s");
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (and("LEVEL 4: ", f0(v1.GetValue(), 2)) + "s");
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (and("TOTAL: ", f0(v1.GetValue(), 2)) + "s");
-		},
+		() => "LEVEL 1:",
+		() => "LEVEL 2:",
+		() => "LEVEL 3:",
+		() => "LEVEL 4:",
+		() => "TOTAL:",
 		() => 5,
 		() => 999999,
 		p => {
@@ -1880,7 +1884,6 @@ self.C3_ExpressionFuncs = [
 			return () => f0(f1(n2.ExpObject()));
 		},
 		() => "get_scores",
-		() => "https://high-score-test.vercel.app/api/race-get-scores",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
