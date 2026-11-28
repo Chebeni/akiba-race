@@ -1633,11 +1633,7 @@ self.C3_ExpressionFuncs = [
 		() => "Loading scores...",
 		() => "menu_scores",
 		() => "https://high-score-test.vercel.app/api/race-get-scores?limit=25",
-		() => "--",
-		() => "best_run_l1",
-		() => "best_run_l2",
-		() => "best_run_l3",
-		() => "best_run_l4",
+		() => "NO RECORD YET",
 		() => "best_run_total",
 		() => 2,
 		p => {
@@ -1705,6 +1701,13 @@ self.C3_ExpressionFuncs = [
 			const f2 = p._GetNode(2).GetBoundMethod();
 			return () => and(f0(f1(f2()), 2), "s");
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0(f1());
+		},
+		() => 5,
+		() => "best_run_vehicle",
 		() => "Car Control",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -1737,7 +1740,6 @@ self.C3_ExpressionFuncs = [
 		() => 1.5,
 		() => 50,
 		() => "boost_fade",
-		() => 5,
 		() => 0.2,
 		() => "Fuel Control",
 		() => 0.1,
@@ -1829,11 +1831,6 @@ self.C3_ExpressionFuncs = [
 		() => "sfx_start",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => f0(f1());
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
 			return () => (and("BEST ", f0(v1.GetValue(), 2)) + "s");
 		},
@@ -1923,6 +1920,18 @@ self.C3_ExpressionFuncs = [
 			const f2 = p._GetNode(2).GetBoundMethod();
 			const f3 = p._GetNode(3).GetBoundMethod();
 			return () => C3.lerp(v0.GetValue(), v1.GetValue(), f2(1, (f3() * 5)));
+		},
+		() => "best_run_l1",
+		() => "best_run_l2",
+		() => "best_run_l3",
+		() => "best_run_l4",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const f2 = p._GetNode(2).GetBoundMethod();
+			const f3 = p._GetNode(3).GetBoundMethod();
+			const f4 = p._GetNode(4).GetBoundMethod();
+			return () => or(((v0.GetValue()) < (f1(f2())) ? 1 : 0), ((f3(f4())) < (5) ? 1 : 0));
 		},
 		() => "Pause",
 		() => "PauseLayer"
