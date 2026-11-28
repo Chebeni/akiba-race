@@ -9,6 +9,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Sin,
 		C3.Plugins.Audio,
 		C3.Plugins.Touch,
+		C3.Behaviors.Tween,
 		C3.Plugins.Text,
 		C3.Plugins.Mouse,
 		C3.Plugins.TiledBg,
@@ -20,7 +21,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TextBox,
 		C3.Plugins.Button,
 		C3.Behaviors.Flash,
-		C3.Behaviors.Tween,
 		C3.Plugins.Particles,
 		C3.Behaviors.Pin,
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
@@ -81,12 +81,14 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.scrollto.Acts.Shake,
 		C3.Plugins.System.Acts.RestartLayout,
 		C3.Plugins.System.Cnds.EveryTick,
+		C3.Behaviors.Tween.Acts.StopTweens,
+		C3.Plugins.Text.Acts.SetOpacity,
+		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.System.Cnds.Every,
 		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.System.Cnds.PickByComparison,
-		C3.Plugins.Text.Acts.SetOpacity,
 		C3.Plugins.System.Exps.min,
 		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.System.Acts.NextPrevLayout,
@@ -99,7 +101,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Sin.Acts.SetMagnitude,
 		C3.Behaviors.Sin.Acts.SetPeriod,
 		C3.Plugins.System.Cnds.ForEach,
-		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Plugins.TiledBg.Acts.SetImageOffsetX,
 		C3.Plugins.TiledBg.Exps.ImageOffsetX,
 		C3.Plugins.System.Acts.CreateObject,
@@ -129,7 +130,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.find,
 		C3.Plugins.AJAX.Cnds.OnError,
 		C3.Plugins.Button.Cnds.OnClicked,
-		C3.Plugins.Particles.Acts.SetAngle
+		C3.Plugins.Particles.Acts.SetAngle,
+		C3.Plugins.System.Acts.SetTimescale,
+		C3.Plugins.System.Cnds.OnSuspend,
+		C3.Plugins.Audio.Acts.SetPaused,
+		C3.Plugins.System.Cnds.OnResume,
+		C3.Plugins.Touch.Cnds.IsInTouch
 	];
 };
 self.C3_JsPropNameTable = [
@@ -155,6 +161,7 @@ self.C3_JsPropNameTable = [
 	{Touch: 0},
 	{LeftButton: 0},
 	{RightButton: 0},
+	{Tween: 0},
 	{Restart: 0},
 	{GroundL4A: 0},
 	{GroundL4B: 0},
@@ -225,7 +232,6 @@ self.C3_JsPropNameTable = [
 	{YourRun: 0},
 	{TOTALDivider: 0},
 	{LevelText: 0},
-	{Tween: 0},
 	{LevelIntroText: 0},
 	{LevelIntructionsText: 0},
 	{IntroBar: 0},
@@ -277,6 +283,10 @@ self.C3_JsPropNameTable = [
 	{MenuL3Time: 0},
 	{MenuL4Time: 0},
 	{MenuTotalTime: 0},
+	{BoostText: 0},
+	{PauseBG: 0},
+	{Paused: 0},
+	{PRESSANYKEYORCLICKTORESUME: 0},
 	{Pin: 0},
 	{Checkers: 0},
 	{Ground: 0},
@@ -326,7 +336,9 @@ self.C3_JsPropNameTable = [
 	{RainTargetAngle: 0},
 	{RainAngle: 0},
 	{CarStillTime: 0},
-	{CarCurrentSpeed: 0}
+	{CarCurrentSpeed: 0},
+	{IsPaused: 0},
+	{ResumeInputReady: 0}
 ];
 
 self.InstanceType = {
@@ -466,6 +478,10 @@ self.InstanceType = {
 	MenuL3Time: class extends self.ITextInstance {},
 	MenuL4Time: class extends self.ITextInstance {},
 	MenuTotalTime: class extends self.ITextInstance {},
+	BoostText: class extends self.ITextInstance {},
+	PauseBG: class extends self.ISpriteInstance {},
+	Paused: class extends self.ITextInstance {},
+	PRESSANYKEYORCLICKTORESUME: class extends self.ITextInstance {},
 	Checkers: class extends self.ISpriteInstance {},
 	Ground: class extends self.ISpriteInstance {},
 	Cars: class extends self.ISpriteInstance {},
